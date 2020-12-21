@@ -1,0 +1,17 @@
+.main-layout {
+  height: 100%;
+}
+
+.layout-header {
+  border: 1px solid red;
+  height: 64px;
+}
+
+.layout-footer {
+  height: 64px;
+  border: 1px solid green;
+}
+
+.layout-body {
+  height: calc(100% - 132px);
+}
