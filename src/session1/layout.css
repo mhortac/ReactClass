@@ -30,8 +30,19 @@
   display: flex;
   flex-direction: row;
   border: 1px solid;
+  border-color: #e0e0e0;
+  border-radius: 10px;
+  background: white;
   height: 60px;
   margin: 0.5em;
+  -webkit-box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+  box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+}
+
+.item-list .MuiIcon-root.item-icon {
+  font-size: 4em;
+  color: #ccc;
 }
 
 .item-list .item-desc {
@@ -46,5 +57,10 @@
   display: flex;
   flex-direction: column;
   width: 400px;
+  margin: 0 auto;
+}
+
+.custom-card {
+  max-width: 50vw;
   margin: 0 auto;
 }
