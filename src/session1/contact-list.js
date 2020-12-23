@@ -3,7 +3,14 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 
 export default function ContactList() {
-  const contacts = [1, 2, 3, 4, 5, 6];
+  let contact_list = [];
+
+  let data = JSON.parse(localStorage.getItem("contacts-list"));
+
+  console.log(data);
+  if (data && data.length) {
+    contact_list = data;
+  }
 
   return (
     <div className="wrap-contact-list">
@@ -21,11 +28,12 @@ export default function ContactList() {
         </Button>
       </div>
       <ul>
-        {contacts.map((item, key) => {
+        {contact_list.map((item, key) => {
           return (
             <li key={key} className="item-list">
-              <Icon className="item-icon"> person </Icon>
-              <div className="item-desc">Murphy Horta Camargo</div>
+              <div className="item-desc">
+                {item.name} {item.lastName}
+              </div>
             </li>
           );
         })}
