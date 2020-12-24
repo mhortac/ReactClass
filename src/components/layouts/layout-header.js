@@ -2,12 +2,12 @@ import React from "react";
 
 import FiscaliaLogo from "assets/logos/fiscalia-logo.png";
 
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +38,7 @@ export default function Header(params) {
             <Icon> menu </Icon>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            <img src={FiscaliaLogo} />
+            <img src={FiscaliaLogo} alt="fiscalia-logo" />
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

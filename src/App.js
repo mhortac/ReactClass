@@ -1,6 +1,8 @@
-import "./App.css";
-import Layout from "./session1/layout";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
+import Layout from "components/layouts/layout";
+
+import "./App.css";
 
 function App() {
   return (

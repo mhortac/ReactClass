@@ -1,0 +1,39 @@
+.main-layout {
+  height: 100%;
+}
+
+.layout-header {
+  height: 64px;
+
+  -webkit-box-shadow: 2px 7px 13px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 7px 13px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 7px 13px -8px rgba(0, 0, 0, 0.75);
+}
+
+.layout-header img {
+  width: 200px;
+}
+
+.layout-footer {
+  height: 64px;
+
+  -webkit-box-shadow: 2px -7px 13px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px -7px 13px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px -7px 13px -8px rgba(0, 0, 0, 0.75);
+}
+
+.layout-body {
+  height: calc(100% - 132px);
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.custom-card {
+  max-width: 437px;
+  margin: 0 auto;
+}

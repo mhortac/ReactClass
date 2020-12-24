@@ -1,0 +1,40 @@
+.contact-list-item {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+  border-color: #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  height: 60px;
+  margin: 0.5em;
+
+  padding: 1em;
+  align-items: center;
+  justify-content: space-between;
+
+  -webkit-box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+  box-shadow: 0px 0px 18px -5px rgba(194, 194, 194, 1);
+}
+
+.contact-list-item .item-icon .MuiIcon-root {
+  font-size: 3em;
+  color: #3f51b5;
+}
+
+.contact-list-item .item-desc {
+  padding: 1em;
+}
+
+.item-image {
+  width: 100px;
+}
+
+.item-info-name {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.button-icon {
+  margin: 1em;
+}

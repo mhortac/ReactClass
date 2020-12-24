@@ -1,25 +1,35 @@
 import React from "react";
 
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 
-export default function CreateContact() {
+export default function UpdateContact() {
+  const { id } = useParams();
+
+  const mode = id ? "EDICIÓN" : "CREACIÓN";
+
+  console.log(mode);
+
+  console.log(id);
+
   const [form, setForm] = React.useState({
     name: "",
-    type: "",
-    identify: "",
     lastName: "",
     number: "",
   });
 
+  setForm({
+    name: "",
+    lastName: "",
+    number: "",
+  });
   function onSubmit(event) {
-    console.log(event);
     event.preventDefault();
-    //saveOnLocalStorage(form);
+    saveOnLocalStorage(form);
   }
 
   function onFieldChange(event) {
@@ -30,11 +40,7 @@ export default function CreateContact() {
   }
 
   function saveOnLocalStorage(new_contact) {
-    console.log(new_contact);
-
     let data = JSON.parse(localStorage.getItem("contacts-list"));
-    console.log(data);
-
     if (data && data.length > 0) {
       data.push(new_contact);
     } else {
@@ -46,6 +52,7 @@ export default function CreateContact() {
 
   return (
     <div>
+      <h1>Editar Contacto</h1>
       <div className="toolbar-contact-list">
         <Button
           variant="contained"
@@ -60,22 +67,6 @@ export default function CreateContact() {
       <Card className="custom-card">
         <CardContent>
           <form className="custom-form" onSubmit={onSubmit}>
-            <label> Tipo de Identificación</label>
-            <select
-              name="type"
-              value={form.type}
-              onChange={(e) => onFieldChange(e)}
-            >
-              <option value="CC">Cédula</option>
-              <option value="T.I">Tarjeta de Identidad</option>
-              <option value="C.E">cédula de Extranjería</option>
-            </select>
-            <label> Identificación</label>
-            <input
-              name="identify"
-              value={form.identify}
-              onChange={(e) => onFieldChange(e)}
-            />
             <label> Nombre</label>
             <input
               name="name"
