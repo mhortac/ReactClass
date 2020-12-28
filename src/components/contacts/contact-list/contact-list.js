@@ -1,12 +1,19 @@
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { readContact } from "redux/actions";
+import { useSelector } from "react-redux";
+
 import { Icon } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 
 import ContactListItem from "./contact-list-item/contact-list-item";
 
 import "./contact-list.css";
 
 export default function ContactList() {
+  const dispatch = useDispatch();
+  const { contacts } = useSelector((state) => state.contacts);
+
   let contact_list = [];
   let data = JSON.parse(localStorage.getItem("contacts-list"));
 
@@ -14,6 +21,13 @@ export default function ContactList() {
     contact_list = data;
   }
 
+  /* dispatch(readContact());
+
+  */
+  /* 
+  contacts.then((rta) => {
+    console.log(rta);
+  }); */
   return (
     <div className="wrap-contact-list">
       <div className="toolbar-contact-list">

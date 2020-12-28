@@ -9,7 +9,6 @@ export default function Layout() {
     <div className="main-layout">
       <Header />
       <Container />
-      <Footer />
     </div>
   );
 }

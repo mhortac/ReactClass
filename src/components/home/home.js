@@ -19,6 +19,17 @@ export default function Home() {
         >
           Entrar
         </Button>
+
+        <h1> Usuarios Externos</h1>
+
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to={"/external-users-list"}
+        >
+          Entrar
+        </Button>
       </div>
     </div>
   );
