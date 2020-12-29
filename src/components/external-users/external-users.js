@@ -4,18 +4,16 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
-import { useState, useCallback, useEffect } from "react";
 
-export default function ExternalUser(params) {
-  const [users, setUsers] = useState([]);
+export default function ExternalUser() {
+  const [users, setUsers] = React.useState([]);
 
   function getUsers() {
     return axios.get("https://jsonplaceholder.typicode.com/users");
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     getUsers().then((rta) => {
-      console.log(rta.data);
       setUsers(rta.data);
     });
   }, []);

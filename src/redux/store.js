@@ -1,5 +1,4 @@
 import { createStore } from "redux";
-import contactReducer from "./reducers";
+import contactReducer from "./reducers/index";
 
-const store = createStore(contactReducer);
-export default store;
+export default createStore(contactReducer);

@@ -1,20 +1,17 @@
 import React from "react";
 
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { useParams } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
+import swal from "@sweetalert/with-react";
 
 export default function UpdateContact() {
   const { id } = useParams();
-
-  const mode = id ? "EDICIÓN" : "CREACIÓN";
-
-  console.log(mode);
-
-  console.log(id);
+  const history = useHistory();
 
   const [form, setForm] = React.useState({
     name: "",
@@ -22,15 +19,28 @@ export default function UpdateContact() {
     number: "",
   });
 
-  setForm({
-    name: "",
-    lastName: "",
-    number: "",
-  });
-  function onSubmit(event) {
-    event.preventDefault();
-    saveOnLocalStorage(form);
-  }
+  React.useEffect(() => {
+    let ls_contacts = JSON.parse(localStorage.getItem("contacts-list"));
+
+    if (ls_contacts && ls_contacts.length) {
+      let contact = ls_contacts.filter((item) => item.id === parseInt(id))[0];
+      if (contact) {
+        setForm({
+          name: contact.name,
+          lastName: contact.lastName,
+          number: contact.number,
+        });
+      } else {
+        swal(
+          "Operación Fallida",
+          `Lo sentimos. Registro con id: ${id} no existe en base de datos.`,
+          "error"
+        ).then(() => {
+          history.push("/contact-list");
+        });
+      }
+    }
+  }, [id, history]);
 
   function onFieldChange(event) {
     setForm({
@@ -39,15 +49,34 @@ export default function UpdateContact() {
     });
   }
 
-  function saveOnLocalStorage(new_contact) {
-    let data = JSON.parse(localStorage.getItem("contacts-list"));
-    if (data && data.length > 0) {
-      data.push(new_contact);
-    } else {
-      data = [new_contact];
-    }
+  function onSubmit(e) {
+    e.preventDefault();
 
-    localStorage.setItem("contacts-list", JSON.stringify(data));
+    let ls_contacts = JSON.parse(localStorage.getItem("contacts-list"));
+
+    if (ls_contacts && ls_contacts.length) {
+      let contacts = ls_contacts.map((item) => {
+        if (item.id === parseInt(id)) {
+          return {
+            ...item,
+            name: form.name,
+            lastName: form.lastName,
+            number: form.number,
+          };
+        } else {
+          return item;
+        }
+      });
+      localStorage.setItem("contacts-list", JSON.stringify(contacts));
+
+      swal(
+        "Operación Exitosa",
+        "Registro Actualizado Exitosamente",
+        "success"
+      ).then(() => {
+        history.push("/contact-list");
+      });
+    }
   }
 
   return (

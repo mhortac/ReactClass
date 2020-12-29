@@ -1,16 +1,16 @@
-const ADD_CONTACT = "ADD_CONTACT";
-const READ_CONTACT = "READ_CONTACT";
+const INCREMENT_CONTACT = "INCREMENT_CONTACT";
+const DECREMENT_CONTACT = "DECREMENT_CONTACT";
 
-function createContact(contact) {
+export function incrementContact(payload) {
   return {
-    type: ADD_CONTACT,
-    payload: contact,
+    type: INCREMENT_CONTACT,
+    payload: payload,
   };
 }
 
-function readContact(payload) {
+export function decrementContact(payload) {
   return {
-    type: READ_CONTACT,
+    type: DECREMENT_CONTACT,
     payload: payload,
   };
 }

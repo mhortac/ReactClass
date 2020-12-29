@@ -1,5 +1,4 @@
 import Header from "components/layouts/layout-header";
-import Footer from "components/layouts/layout-footer";
 import Container from "components/layouts/layout-container";
 
 import "./layout.css";

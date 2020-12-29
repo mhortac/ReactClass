@@ -1,6 +1,6 @@
 import React from "react";
 
-import FiscaliaLogo from "assets/logos/fiscalia-logo.png";
+import { useSelector } from "react-redux";
 
 import Icon from "@material-ui/core/Icon";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,6 +9,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+
+import FiscaliaLogo from "assets/logos/fiscalia-logo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(params) {
   const classes = useStyles();
+  const { contacts } = useSelector((state) => state);
 
   return (
     <div className="layout-header">
@@ -40,7 +43,7 @@ export default function Header(params) {
           <Typography variant="h6" className={classes.title}>
             <img src={FiscaliaLogo} alt="fiscalia-logo" />
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit"> {contacts} </Button>
         </Toolbar>
       </AppBar>
     </div>
